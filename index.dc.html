@@ -1,113 +1,192 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<style>
-  body { margin: 0; background: #1a1a1a; }
-  a { color: #1a1a1a; text-decoration: none; }
-  a:hover { color: #555; }
-</style>
-</helmet>
-<div style="background:{{ theme.pageBg }}; min-height:100vh; padding:32px 24px; box-sizing:border-box; font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;">
-  <div style="max-width:960px; margin:0 auto; background:{{ theme.cardBg }}; border-radius:2px; overflow:hidden;">
-    <nav style="display:flex; align-items:center; justify-content:space-between; padding:28px 40px; border-bottom:1px solid {{ theme.border }};">
-      <div style="font-size:19px; color:{{ theme.text }};">Michael Kim</div>
-      <div style="display:flex; gap:36px; align-items:center;">
-        <a href="index.dc.html" style="font-size:17px; font-weight:600; color:{{ theme.text }};">Home</a>
-        <a href="https://linkedin.com/in/placeholder" target="_blank" rel="noopener" style="font-size:17px; color:{{ theme.textMuted }};">LinkedIn</a>
-        <a href="resume.dc.html" style="font-size:17px; color:{{ theme.textMuted }};">Resume</a>
-        <a href="contact.dc.html" style="font-size:17px; color:{{ theme.textMuted }};">Contact</a>
-        <button onClick="{{ toggleDark }}" style="font-size:14px; font-weight:600; color:{{ theme.text }}; background:transparent; border:1px solid {{ theme.border }}; border-radius:14px; padding:6px 14px; cursor:pointer;">{{ theme.toggleLabel }}</button>
-      </div>
-    </nav>
-
-    <div style="padding:40px 40px 56px;">
-      <h1 style="text-align:center; font-size:32px; font-weight:500; margin:0 0 32px; color:{{ theme.text }};">Projects</h1>
-
-      <div style="display:flex; flex-direction:column; gap:20px;">
-        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
-          <div onClick="{{ p.toggle }}" style="cursor:pointer; border:1px solid {{ theme.border }}; border-radius:4px; overflow:hidden; transition:box-shadow 0.15s;" style-hover="box-shadow:0 2px 10px rgba(0,0,0,0.06);">
-            <div style="background:{{ theme.placeholderBg }}; height:130px; display:flex; align-items:center; justify-content:center;">
-              <span style="font-family:monospace; font-size:13px; color:{{ theme.textMuted }};">project image</span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./support.js"></script>
+  </head>
+  <body>
+    <x-dc>
+      <helmet>
+        <style>
+          body {
+            margin: 0;
+            background: #1a1a1a;
+          }
+          a {
+            color: #1a1a1a;
+            text-decoration: none;
+          }
+          a:hover {
+            color: #555;
+          }
+        </style>
+      </helmet>
+      <div
+        style="background:{{ theme.pageBg }}; min-height:100vh; padding:32px 24px; box-sizing:border-box; font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;"
+      >
+        <div
+          style="max-width:960px; margin:0 auto; background:{{ theme.cardBg }}; border-radius:2px; overflow:hidden;"
+        >
+          <nav
+            style="display:flex; align-items:center; justify-content:space-between; padding:28px 40px; border-bottom:1px solid {{ theme.border }};"
+          >
+            <div style="font-size:19px; color:{{ theme.text }};">
+              Michael Kim
             </div>
-            <sc-if value="{{ p.expanded }}" hint-placeholder-val="{{ false }}">
-              <div style="padding:24px 28px;">
-                <h2 style="margin:0 0 6px; font-size:20px; font-weight:600; color:{{ theme.text }};">{{ p.title }}</h2>
-                <p style="margin:0 0 16px; font-size:15px; color:{{ theme.textMuted }};">{{ p.oneLiner }}</p>
-                <p style="margin:0 0 18px; font-size:14px; line-height:1.65; color:{{ theme.textMuted }};">{{ p.designIntent }}</p>
-                <a href="{{ p.link }}" target="_blank" rel="noopener" onClick="{{ p.stopProp }}" style="font-size:14px; font-weight:600; color:{{ theme.text }}; border-bottom:1px solid {{ theme.text }};">View project &rarr;</a>
-              </div>
-            </sc-if>
-            <sc-if value="{{ p.collapsedVal }}" hint-placeholder-val="{{ true }}">
-              <div style="padding:16px 28px;">
-                <h2 style="margin:0; font-size:17px; font-weight:500; color:{{ theme.text }};">{{ p.title }}</h2>
-              </div>
-            </sc-if>
+            <div style="display: flex; gap: 36px; align-items: center">
+              <a
+                href="index.dc.html"
+                style="font-size:17px; font-weight:600; color:{{ theme.text }};"
+                >Home</a
+              >
+              <a
+                href="https://linkedin.com/in/placeholder"
+                target="_blank"
+                rel="noopener"
+                style="font-size:17px; color:{{ theme.textMuted }};"
+                >LinkedIn</a
+              >
+              <a
+                href="resume.dc.html"
+                style="font-size:17px; color:{{ theme.textMuted }};"
+                >Resume</a
+              >
+              <a
+                href="contact.dc.html"
+                style="font-size:17px; color:{{ theme.textMuted }};"
+                >Contact</a
+              >
+              <button
+                onClick="{{ toggleDark }}"
+                style="font-size:14px; font-weight:600; color:{{ theme.text }}; background:transparent; border:1px solid {{ theme.border }}; border-radius:14px; padding:6px 14px; cursor:pointer;"
+              >
+                {{ theme.toggleLabel }}
+              </button>
+            </div>
+          </nav>
+
+          <div style="padding: 40px 40px 56px">
+            <h1
+              style="text-align:center; font-size:32px; font-weight:500; margin:0 0 32px; color:{{ theme.text }};"
+            >
+              Projects
+            </h1>
+
+            <div style="display: flex; flex-direction: column; gap: 20px">
+              <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+                <div
+                  onClick="{{ p.toggle }}"
+                  style="cursor:pointer; border:1px solid {{ theme.border }}; border-radius:4px; overflow:hidden; transition:box-shadow 0.15s;"
+                  style-hover="box-shadow:0 2px 10px rgba(0,0,0,0.06);"
+                >
+                  <div
+                    style="background:{{ theme.placeholderBg }}; height:130px; display:flex; align-items:center; justify-content:center;"
+                  >
+                    <span
+                      style="font-family:monospace; font-size:13px; color:{{ theme.textMuted }};"
+                      >project image</span
+                    >
+                  </div>
+                  <sc-if
+                    value="{{ p.expanded }}"
+                    hint-placeholder-val="{{ false }}"
+                  >
+                    <div style="padding: 24px 28px">
+                      <h2
+                        style="margin:0 0 6px; font-size:20px; font-weight:600; color:{{ theme.text }};"
+                      >
+                        {{ p.title }}
+                      </h2>
+                      <p
+                        style="margin:0 0 16px; font-size:15px; color:{{ theme.textMuted }};"
+                      >
+                        {{ p.oneLiner }}
+                      </p>
+                      <p
+                        style="margin:0 0 18px; font-size:14px; line-height:1.65; color:{{ theme.textMuted }};"
+                      >
+                        {{ p.designIntent }}
+                      </p>
+                      <a
+                        href="{{ p.link }}"
+                        target="_blank"
+                        rel="noopener"
+                        onClick="{{ p.stopProp }}"
+                        style="font-size:14px; font-weight:600; color:{{ theme.text }}; border-bottom:1px solid {{ theme.text }};"
+                        >View project &rarr;</a
+                      >
+                    </div>
+                  </sc-if>
+                  <sc-if
+                    value="{{ p.collapsedVal }}"
+                    hint-placeholder-val="{{ true }}"
+                  >
+                    <div style="padding: 16px 28px">
+                      <h2
+                        style="margin:0; font-size:17px; font-weight:500; color:{{ theme.text }};"
+                      >
+                        {{ p.title }}
+                      </h2>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
           </div>
-        </sc-for>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
+    </x-dc>
+    <script type="text/x-dc" data-dc-script>
+      class Component extends DCLogic {
+        state = {
+          projects: [
+            { title: 'Project One', oneLiner: 'A one-line summary of what this project is and does.', designIntent: 'A paragraph on the design intent — the problem being solved, existing layouts studied, and the reasoning behind key decisions.', link: '#' },
+            { title: 'Project Two', oneLiner: 'A one-line summary of what this project is and does.', designIntent: 'A paragraph on the design intent — the problem being solved, existing layouts studied, and the reasoning behind key decisions.', link: '#' },
+            { title: 'Project Three', oneLiner: 'A one-line summary of what this project is and does.', designIntent: 'A paragraph on the design intent — the problem being solved, existing layouts studied, and the reasoning behind key decisions.', link: '#' },
+            { title: 'Project Four', oneLiner: 'A one-line summary of what this project is and does.', designIntent: 'A paragraph on the design intent — the problem being solved, existing layouts studied, and the reasoning behind key decisions.', link: '#' }
+          ],
+          expandedIndex: null,
+          dark: localStorage.getItem('site-dark') === null ? true : localStorage.getItem('site-dark') === '1'
+        };
 
-</x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  state = {
-    projects: [
-      { title: 'Project One', oneLiner: 'A one-line summary of what this project is and does.', designIntent: 'A paragraph on the design intent — the problem being solved, existing layouts studied, and the reasoning behind key decisions.', link: '#' },
-      { title: 'Project Two', oneLiner: 'A one-line summary of what this project is and does.', designIntent: 'A paragraph on the design intent — the problem being solved, existing layouts studied, and the reasoning behind key decisions.', link: '#' },
-      { title: 'Project Three', oneLiner: 'A one-line summary of what this project is and does.', designIntent: 'A paragraph on the design intent — the problem being solved, existing layouts studied, and the reasoning behind key decisions.', link: '#' },
-      { title: 'Project Four', oneLiner: 'A one-line summary of what this project is and does.', designIntent: 'A paragraph on the design intent — the problem being solved, existing layouts studied, and the reasoning behind key decisions.', link: '#' }
-    ],
-    expandedIndex: null,
-    dark: localStorage.getItem('site-dark') === null ? true : localStorage.getItem('site-dark') === '1'
-  };
+        toggle(i) {
+          this.setState(s => ({ expandedIndex: s.expandedIndex === i ? null : i }));
+        }
 
-  toggle(i) {
-    this.setState(s => ({ expandedIndex: s.expandedIndex === i ? null : i }));
-  }
+        toggleDark() {
+          this.setState(s => {
+            const dark = !s.dark;
+            localStorage.setItem('site-dark', dark ? '1' : '0');
+            return { dark };
+          });
+        }
 
-  toggleDark() {
-    this.setState(s => {
-      const dark = !s.dark;
-      localStorage.setItem('site-dark', dark ? '1' : '0');
-      return { dark };
-    });
-  }
+        getTheme() {
+          const dark = this.state.dark;
+          return dark ? {
+            pageBg: '#000', cardBg: '#1a1a1a', text: '#f2f2f2', textMuted: '#aaa',
+            border: '#333', placeholderBg: '#2a2a2a', toggleLabel: 'Light mode'
+          } : {
+            pageBg: '#1a1a1a', cardBg: '#fff', text: '#1a1a1a', textMuted: '#555',
+            border: '#e2e2e2', placeholderBg: '#d9d9d9', toggleLabel: 'Dark mode'
+          };
+        }
 
-  getTheme() {
-    const dark = this.state.dark;
-    return dark ? {
-      pageBg: '#000', cardBg: '#1a1a1a', text: '#f2f2f2', textMuted: '#aaa',
-      border: '#333', placeholderBg: '#2a2a2a', toggleLabel: 'Light mode'
-    } : {
-      pageBg: '#1a1a1a', cardBg: '#fff', text: '#1a1a1a', textMuted: '#555',
-      border: '#e2e2e2', placeholderBg: '#d9d9d9', toggleLabel: 'Dark mode'
-    };
-  }
-
-  renderVals() {
-    const projects = this.state.projects.map((p, i) => ({
-      title: p.title,
-      oneLiner: p.oneLiner,
-      designIntent: p.designIntent,
-      link: p.link,
-      expanded: this.state.expandedIndex === i,
-      collapsedVal: this.state.expandedIndex !== i,
-      toggle: () => this.toggle(i),
-      stopProp: (e) => e.stopPropagation()
-    }));
-    return { projects, theme: this.getTheme(), toggleDark: () => this.toggleDark() };
-  }
-}
-
-</script>
-</body>
+        renderVals() {
+          const projects = this.state.projects.map((p, i) => ({
+            title: p.title,
+            oneLiner: p.oneLiner,
+            designIntent: p.designIntent,
+            link: p.link,
+            expanded: this.state.expandedIndex === i,
+            collapsedVal: this.state.expandedIndex !== i,
+            toggle: () => this.toggle(i),
+            stopProp: (e) => e.stopPropagation()
+          }));
+          return { projects, theme: this.getTheme(), toggleDark: () => this.toggleDark() };
+        }
+      }
+    </script>
+  </body>
 </html>

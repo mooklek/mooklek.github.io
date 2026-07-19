@@ -1,81 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<style>
-  body { margin: 0; background: #1a1a1a; }
-  a { color: #1a1a1a; text-decoration: none; }
-  a:hover { color: #555; }
-  input, textarea { font-family: -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif; }
-  input::placeholder, textarea::placeholder { color: inherit; opacity: 0.6; }
-</style>
-</helmet>
-<div style="background:{{ theme.pageBg }}; min-height:100vh; padding:32px 24px; box-sizing:border-box; font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;">
-  <div style="max-width:960px; margin:0 auto; background:{{ theme.cardBg }}; border-radius:2px; overflow:hidden;">
-    <nav style="display:flex; align-items:center; justify-content:space-between; padding:28px 40px; border-bottom:1px solid {{ theme.border }};">
-      <div style="font-size:19px; color:{{ theme.text }};">Michael Kim</div>
-      <div style="display:flex; gap:36px; align-items:center;">
-        <a href="index.dc.html" style="font-size:17px; color:{{ theme.textMuted }};">Home</a>
-        <a href="https://linkedin.com/in/placeholder" target="_blank" rel="noopener" style="font-size:17px; color:{{ theme.textMuted }};">LinkedIn</a>
-        <a href="resume.dc.html" style="font-size:17px; color:{{ theme.textMuted }};">Resume</a>
-        <a href="contact.dc.html" style="font-size:17px; font-weight:600; color:{{ theme.text }};">Contact</a>
-        <button onClick="{{ toggleDark }}" style="font-size:14px; font-weight:600; color:{{ theme.text }}; background:transparent; border:1px solid {{ theme.border }}; border-radius:14px; padding:6px 14px; cursor:pointer;">{{ theme.toggleLabel }}</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./support.js"></script>
+  </head>
+  <body>
+    <x-dc>
+      <helmet>
+        <style>
+          body {
+            margin: 0;
+            background: #1a1a1a;
+          }
+          a {
+            color: #1a1a1a;
+            text-decoration: none;
+          }
+          a:hover {
+            color: #555;
+          }
+          input,
+          textarea {
+            font-family:
+              -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
+              Arial, sans-serif;
+          }
+          input::placeholder,
+          textarea::placeholder {
+            color: inherit;
+            opacity: 0.6;
+          }
+        </style>
+      </helmet>
+      <div
+        style="background:{{ theme.pageBg }}; min-height:100vh; padding:32px 24px; box-sizing:border-box; font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;"
+      >
+        <div
+          style="max-width:960px; margin:0 auto; background:{{ theme.cardBg }}; border-radius:2px; overflow:hidden;"
+        >
+          <nav
+            style="display:flex; align-items:center; justify-content:space-between; padding:28px 40px; border-bottom:1px solid {{ theme.border }};"
+          >
+            <div style="font-size:19px; color:{{ theme.text }};">
+              Michael Kim
+            </div>
+            <div style="display: flex; gap: 36px; align-items: center">
+              <a
+                href="index.dc.html"
+                style="font-size:17px; color:{{ theme.textMuted }};"
+                >Home</a
+              >
+              <a
+                href="https://linkedin.com/in/placeholder"
+                target="_blank"
+                rel="noopener"
+                style="font-size:17px; color:{{ theme.textMuted }};"
+                >LinkedIn</a
+              >
+              <a
+                href="resume.dc.html"
+                style="font-size:17px; color:{{ theme.textMuted }};"
+                >Resume</a
+              >
+              <a
+                href="contact.dc.html"
+                style="font-size:17px; font-weight:600; color:{{ theme.text }};"
+                >Contact</a
+              >
+              <button
+                onClick="{{ toggleDark }}"
+                style="font-size:14px; font-weight:600; color:{{ theme.text }}; background:transparent; border:1px solid {{ theme.border }}; border-radius:14px; padding:6px 14px; cursor:pointer;"
+              >
+                {{ theme.toggleLabel }}
+              </button>
+            </div>
+          </nav>
+
+          <div
+            style="
+              padding: 56px 40px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            "
+          >
+            <h1
+              style="font-size:32px; font-weight:500; margin:0 0 12px; color:{{ theme.text }};"
+            >
+              Contact
+            </h1>
+            <a
+              href="mailto:michael@example.com"
+              style="font-size:16px; color:{{ theme.textMuted }}; margin-bottom:36px; border-bottom:1px solid {{ theme.border }};"
+              >michael@example.com</a
+            >
+
+            <form
+              style="
+                width: 100%;
+                max-width: 480px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+              "
+              onSubmit="{{ handleSubmit }}"
+            >
+              <input
+                type="text"
+                placeholder="Your name"
+                style="padding:12px 14px; font-size:15px; border:1px solid {{ theme.border }}; border-radius:3px; outline:none; background:{{ theme.cardBg }}; color:{{ theme.text }};"
+              />
+              <input
+                type="email"
+                placeholder="Your email"
+                style="padding:12px 14px; font-size:15px; border:1px solid {{ theme.border }}; border-radius:3px; outline:none; background:{{ theme.cardBg }}; color:{{ theme.text }};"
+              />
+              <textarea
+                placeholder="Message"
+                rows="5"
+                style="padding:12px 14px; font-size:15px; border:1px solid {{ theme.border }}; border-radius:3px; outline:none; resize:vertical; background:{{ theme.cardBg }}; color:{{ theme.text }};"
+              ></textarea>
+              <button
+                type="submit"
+                style="padding:12px 0; font-size:15px; font-weight:600; color:{{ theme.cardBg }}; background:{{ theme.text }}; border:none; border-radius:3px; cursor:pointer;"
+              >
+                Send
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-    </nav>
+    </x-dc>
+    <script type="text/x-dc" data-dc-script>
+      class Component extends DCLogic {
+        state = { dark: localStorage.getItem('site-dark') === null ? true : localStorage.getItem('site-dark') === '1' };
 
-    <div style="padding:56px 40px; display:flex; flex-direction:column; align-items:center;">
-      <h1 style="font-size:32px; font-weight:500; margin:0 0 12px; color:{{ theme.text }};">Contact</h1>
-      <a href="mailto:michael@example.com" style="font-size:16px; color:{{ theme.textMuted }}; margin-bottom:36px; border-bottom:1px solid {{ theme.border }};">michael@example.com</a>
+        handleSubmit(e) {
+          e.preventDefault();
+        }
 
-      <form style="width:100%; max-width:480px; display:flex; flex-direction:column; gap:16px;" onSubmit="{{ handleSubmit }}">
-        <input type="text" placeholder="Your name" style="padding:12px 14px; font-size:15px; border:1px solid {{ theme.border }}; border-radius:3px; outline:none; background:{{ theme.cardBg }}; color:{{ theme.text }};" />
-        <input type="email" placeholder="Your email" style="padding:12px 14px; font-size:15px; border:1px solid {{ theme.border }}; border-radius:3px; outline:none; background:{{ theme.cardBg }}; color:{{ theme.text }};" />
-        <textarea placeholder="Message" rows="5" style="padding:12px 14px; font-size:15px; border:1px solid {{ theme.border }}; border-radius:3px; outline:none; resize:vertical; background:{{ theme.cardBg }}; color:{{ theme.text }};"></textarea>
-        <button type="submit" style="padding:12px 0; font-size:15px; font-weight:600; color:{{ theme.cardBg }}; background:{{ theme.text }}; border:none; border-radius:3px; cursor:pointer;">Send</button>
-      </form>
-    </div>
-  </div>
-</div>
+        toggleDark() {
+          this.setState(s => {
+            const dark = !s.dark;
+            localStorage.setItem('site-dark', dark ? '1' : '0');
+            return { dark };
+          });
+        }
 
-</x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  state = { dark: localStorage.getItem('site-dark') === null ? true : localStorage.getItem('site-dark') === '1' };
+        getTheme() {
+          const dark = this.state.dark;
+          return dark ? {
+            pageBg: '#000', cardBg: '#1a1a1a', text: '#f2f2f2', textMuted: '#aaa',
+            border: '#333', placeholderBg: '#2a2a2a', toggleLabel: 'Light mode'
+          } : {
+            pageBg: '#1a1a1a', cardBg: '#fff', text: '#1a1a1a', textMuted: '#555',
+            border: '#e2e2e2', placeholderBg: '#d9d9d9', toggleLabel: 'Dark mode'
+          };
+        }
 
-  handleSubmit(e) {
-    e.preventDefault();
-  }
-
-  toggleDark() {
-    this.setState(s => {
-      const dark = !s.dark;
-      localStorage.setItem('site-dark', dark ? '1' : '0');
-      return { dark };
-    });
-  }
-
-  getTheme() {
-    const dark = this.state.dark;
-    return dark ? {
-      pageBg: '#000', cardBg: '#1a1a1a', text: '#f2f2f2', textMuted: '#aaa',
-      border: '#333', placeholderBg: '#2a2a2a', toggleLabel: 'Light mode'
-    } : {
-      pageBg: '#1a1a1a', cardBg: '#fff', text: '#1a1a1a', textMuted: '#555',
-      border: '#e2e2e2', placeholderBg: '#d9d9d9', toggleLabel: 'Dark mode'
-    };
-  }
-
-  renderVals() {
-    return { theme: this.getTheme(), toggleDark: () => this.toggleDark(), handleSubmit: (e) => this.handleSubmit(e) };
-  }
-}
-
-</script>
-</body>
+        renderVals() {
+          return { theme: this.getTheme(), toggleDark: () => this.toggleDark(), handleSubmit: (e) => this.handleSubmit(e) };
+        }
+      }
+    </script>
+  </body>
 </html>
