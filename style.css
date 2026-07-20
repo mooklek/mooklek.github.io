@@ -1,0 +1,209 @@
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ---------- Custom Properties ---------- */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-muted: #6b6b6b;
+  --color-border: #e5e5e5;
+
+  --font-base:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --max-width: 1100px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 2rem;
+  --space-4: 4rem;
+  --space-5: 8rem;
+
+  --transition-base: 0.2s ease;
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  padding-block: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.nav__link {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  transition: color var(--transition-base);
+}
+
+.nav__link:hover {
+  color: var(--color-text);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding-block: var(--space-3) var(--space-4);
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.hero__subtitle {
+  margin-top: var(--space-2);
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+/* ---------- Section Titles ---------- */
+.section-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  margin-bottom: var(--space-1);
+}
+
+/* ---------- Work / Projects ---------- */
+.work {
+  padding-block: var(--space-2);
+  border-top: 1px solid var(--color-border);
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+
+  position: relative;
+}
+
+.project__image-wrap {
+  overflow: hidden;
+  aspect-ratio: 21 / 3;
+  background-color: var(--color-border);
+}
+
+.project__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.project__link:hover .project__image {
+  transform: scale(1.03);
+}
+
+.project__title {
+  margin-top: var(--space-2);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.project__meta {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 0.25rem;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ---------- About ---------- */
+.about {
+  padding-block: var(--space-4);
+}
+
+.about__text {
+  color: var(--color-muted);
+}
+
+/* ---------- Contact ---------- */
+.contact {
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.contact__link {
+  border-bottom: 1px solid var(--color-text);
+  transition: opacity var(--transition-base);
+}
+
+.contact__link:hover {
+  opacity: 0.6;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.site-footer__text {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+}

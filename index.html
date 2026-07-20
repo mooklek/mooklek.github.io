@@ -3,8 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michael's Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Michael Kim — Map/Level Designer"
+    />
     <link rel="stylesheet" href="style.css" />
-    <title>Level Design Portfolio</title>
   </head>
-  <body></body>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a href="#" class="logo"> Michael Kim </a>
+        <nav class="nav">
+          <a href="#work" class="nav__link">Work</a>
+          <a href="#about" class="nav__link">About</a>
+          <a href="#contact" class="nav__link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <h1 class="hero__title">Game Design Portfolio</h1>
+        <p class="hero__subtitle">"What will you become tomorrow?"</p>
+      </section>
+
+      <section id="work" class="work container">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="project-list">
+          <article class="project">
+            <a href="#" class="project__link">
+              <div class="project__image-wrap">
+                <img
+                  src="assets/project-1.jpg"
+                  alt="Project One thumbnail"
+                  class="project__image"
+                />
+              </div>
+              <h3 class="project__title">Project One</h3>
+              <p class="project__meta">Category — 2025</p>
+            </a>
+          </article>
+
+          <article class="project">
+            <a href="#" class="project__link">
+              <div class="project__image-wrap">
+                <img
+                  src="assets/project-2.jpg"
+                  alt="Project Two thumbnail"
+                  class="project__image"
+                />
+              </div>
+              <h3 class="project__title">Project Two</h3>
+              <p class="project__meta">Category — 2025</p>
+            </a>
+          </article>
+
+          <!-- Duplicate .project article for each additional project -->
+        </div>
+      </section>
+
+      <section id="about" class="about container">
+        <h2 class="section-title">About</h2>
+        <p class="about__text">
+          A paragraph about you, your background, and what you're focused on.
+        </p>
+      </section>
+
+      <section id="contact" class="contact container">
+        <h2 class="section-title">Contact</h2>
+        <p class="contact__text">
+          Say hello —
+          <a href="mailto:you@email.com" class="contact__link">you@email.com</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="site-footer__text">
+          &copy; 2026 Your Name. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>
