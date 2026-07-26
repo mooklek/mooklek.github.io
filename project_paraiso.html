@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Title — Michael Kim</title>
+    <meta
+      name="description"
+      content="Project Title — Map/Level Design breakdown"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="lightbox.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a href="index.html" class="logo"> Michael Kim </a>
+        <nav class="nav">
+          <a href="index.html#work" class="nav__link">Work</a>
+          <a href="index.html#about" class="nav__link">About</a>
+          <a href="index.html#contact" class="nav__link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ---------- Header / One-liner ---------- -->
+      <section class="project-hero container">
+        <a href="index.html#work" class="project-hero__back"
+          >&larr; Back to Work</a
+        >
+        <h1 class="project-hero__title">Paraíso Redesign</h1>
+        <p class="project-hero__oneliner">
+          Paraíso, reimagined: fixing choke points, adding routes
+        </p>
+        <ul class="project-hero__meta">
+          <li><strong>Game/Engine:</strong> Overwatch</li>
+          <li><strong>Role:</strong> Level Designer</li>
+          <li><strong>Timeframe:</strong> December 2025 — Feburary 2026</li>
+        </ul>
+      </section>
+
+      <!-- ---------- Design Intent ---------- -->
+      <section class="project-section container">
+        <h2 class="section-title">Design Intent</h2>
+        <p class="project-section__text">
+          <b> To simply put, Paraíso is just too hard to play.</b> It strays
+          from the convential hybrid map layout where it has two chokepoints
+          instead of just one, forcing players to spend additional time and
+          resources before fighting around the capture point. Overwatch Twitch
+          VODs indicate that the map shows up equally as much as the other
+          hybrid maps but does not get voted on nearly as much in high rank
+          lobbies (link below). This data isn't entirely representative of the
+          entire player population within Overwatch, but it clearly shows that
+          there is a problem with the map.
+          <b>
+            This redesign aims to introduce new rotational opportunities while
+            maintaining the current flow of the map.
+          </b>
+        </p>
+      </section>
+
+      <!-- ---------- Sequenced Screenshots ---------- -->
+      <section class="project-section container">
+        <h2 class="section-title">Walkthrough</h2>
+        <div class="project-gallery">
+          <figure class="project-gallery__item">
+            <img
+              src="/Paraíso Redesign/Ramp2.png"
+              alt="Describe what this shot shows"
+              class="project-gallery__image"
+            />
+            <img
+              src="/Paraíso Redesign/Ramp1.png"
+              alt="Describe what this shot shows"
+              class="project-gallery__image"
+            />
+            <figcaption class="project-gallery__caption">
+              Ramp Change — set up the story this shot tells (arrival, first
+              choice, escalation, payoff).
+            </figcaption>
+          </figure>
+
+          <figure class="project-gallery__item">
+            <img
+              src="/Paraíso Redesign/Bridge1.png"
+              alt="Describe what this shot shows"
+              class="project-gallery__image"
+            />
+            <figcaption class="project-gallery__caption">
+              Beat 2 — continue the narrative thread from the previous shot.
+            </figcaption>
+          </figure>
+
+          <!-- Duplicate .project-gallery__item for each additional beat -->
+        </div>
+      </section>
+
+      <!-- ---------- Annotated Callouts ---------- -->
+      <section class="project-section container">
+        <h2 class="section-title">Project Notes</h2>
+        <p class="project-section__text">
+          Overlay callouts on a top-down/blockout shot showing sightlines,
+          chokepoints, cover, player paths, and pacing beats.
+        </p>
+        <div class="project-annotation">
+          <div class="project-annotation__frame">
+            <img
+              src="placeholder-topdown.png"
+              alt="Annotated top-down blockout"
+              class="project-annotation__image"
+            />
+            <!--
+              Add callout markers positioned over the image, e.g.:
+              <span class="project-annotation__marker" style="top: 30%; left: 45%;">1</span>
+            -->
+          </div>
+          <ol class="project-annotation__list">
+            <li>Callout 1 — what's happening here and why it matters.</li>
+            <li>Callout 2 — sightline, chokepoint, or pacing note.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ---------- Other Resources ---------- -->
+      <section class="project-section container">
+        <h2 class="section-title">Other Resources</h2>
+        <p class="project-section__text">
+          Additional documentation for anyone who wants to go deeper — design
+          docs, blockout videos, playtest notes, or scripting samples.
+        </p>
+        <ul class="project-resources">
+          <li class="project-resources__item">
+            <a
+              href="#"
+              class="project-resources__link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Design Document (PDF)
+            </a>
+          </li>
+          <li class="project-resources__item">
+            <a
+              href="https://ow-map-voting-data.streamlit.app/"
+              class="project-resources__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Map Voting Website Link</a
+            >
+          </li>
+          <!-- Duplicate .project-resources__item for each additional resource -->
+        </ul>
+      </section>
+
+      <!-- ---------- Outcome / Reflection ---------- -->
+      <section class="project-section container">
+        <h2 class="section-title">Outcome &amp; Reflection</h2>
+        <p class="project-section__text">
+          What worked, what you'd change, and any playtest feedback that shaped
+          the level.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="site-footer__text">
+          &copy; 2026 Michael Kim. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
