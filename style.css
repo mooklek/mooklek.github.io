@@ -266,6 +266,10 @@ body {
   color: var(--color-muted);
 }
 
+.project-gallery__caption p + p {
+  margin-top: var(--space-1);
+}
+
 .project-annotation {
   margin-top: var(--space-2);
 }
