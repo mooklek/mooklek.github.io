@@ -45,6 +45,7 @@ ol {
 /* ---------- Base ---------- */
 html {
   scroll-behavior: smooth;
+  font-size: 120%;
 }
 
 body {
