@@ -249,6 +249,10 @@ body {
   color: var(--color-muted);
 }
 
+.project-section__text + .project-section__text {
+  margin-top: 1em;
+}
+
 .project-gallery {
   display: flex;
   flex-direction: column;
