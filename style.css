@@ -135,9 +135,30 @@ body {
 }
 
 .project__image-wrap {
+  position: relative;
   overflow: hidden;
   aspect-ratio: 21 / 3;
   background-color: var(--color-border);
+}
+
+.project__image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(300px);
+  -webkit-backdrop-filter: blur(300px);
+  mask-image: radial-gradient(ellipse at center, transparent 55%, black 100%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    black 100%
+  );
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.project__link:hover .project__image-wrap::after {
+  opacity: 0;
 }
 
 .project__image {
